@@ -4,49 +4,49 @@
 
 using namespace std;
 
-// Базовий клас "Точка"
+// Basic class "Point"
 class Point {
 protected:
-    double x, y;  // координати точки
+    double x, y;  // point coordinates
 public:
     Point(double x, double y) : x(x), y(y) {}
 };
 
-// Похідний клас "Куля"
+// Derived class "Sphere"
 class Sphere : public Point {
 protected:
-    double radius;  // радіус кулі
+    double radius;  // sphere radius
 public:
     Sphere(double x, double y, double r) : Point(x, y), radius(r) {}
-    double area() // площа бічної поверхні кулі
+    double area() // is the area of the side surface of the sphere
     {  
         return 4 * M_PI * radius * radius;
     }
-    double volume() // об'єм кулі
+    double volume() // sphere volume
     {  
         return 4.0 / 3.0 * M_PI * radius * radius * radius;
     }
 };
 
-// Похідний клас "Відрізок"
+// Derived class "Segment"
 class Segment : public Point {
 protected:
-    double length;  // довжина відрізка
+    double length;  // segment length
 public:
     Segment(double x, double y, double l) : Point(x, y), length(l) {}
 };
 
-// Похідний клас "Кульовий сегмент"
+// Derived class "Spherical segment"
 class SphericalSegment : public Segment {
 protected:
-    double radius;  // радіус кульового сегмента
+    double radius;  // radius of a spherical segment
 public:
     SphericalSegment(double x, double y, double l, double r) : Segment(x, y, l), radius(r) {}
-    double area() // площа кульового сегмента
+    double area() // area of a spherical segment
     { 
         return 2 * M_PI * radius * length;
     }
-    double volume() // об'єм кульового сегмента
+    double volume() // volume of the spherical segment
     { 
         return M_PI * length * length * (radius - length / 3);
     }
