@@ -37,11 +37,9 @@ public:
 };
 
 // Derived class "Spherical segment"
-class SphericalSegment : public Segment {
-protected:
-    double radius;  // radius of a spherical segment
+class SphericalSegment : public Segment, public Sphere {
 public:
-    SphericalSegment(double x, double y, double l, double r) : Segment(x, y, l), radius(r) {}
+    SphericalSegment(double x, double y, double l, double r) : Sphere(x, y, r), Segment(x, y, l) {}
     double area() // area of a spherical segment
     { 
         return 2 * M_PI * radius * length;
