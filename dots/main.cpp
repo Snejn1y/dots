@@ -7,18 +7,18 @@ using namespace std;
 // Basic class "Point"
 class Point {
 protected:
-    double x, y;  // координати точки
+    double x, y;  // point coordinates
 public:
     Point(double x, double y) : x(x), y(y) {}
 };
 
-// похідний клас "Sphere"
+// Bacis class "Sphere"
 class Sphere : public Point {
 protected:
-    double radius;  // радіус сфери
+    double radius;  // radius sphere
 public:
     Sphere(double x1, double y1, double x2, double y2) : Point(x1, y1) {
-        // розраховуємо радіус за допомогою координат двох точок
+        // calculate the radius using the coordinates of two points
         double dx = x2 - x1;
         double dy = y2 - y1;
         radius = sqrt(dx * dx + dy * dy);
@@ -27,11 +27,11 @@ public:
     {
         return radius;
     }
-    double area() // площа бічної поверхні сфери
+    double area() // is the area of the side surface of the sphere
     {
         return 4 * M_PI * radius * radius;
     }
-    double volume() // об'єм сфери
+    double volume() // sphere volume
     {
         return 4.0 / 3.0 * M_PI * radius * radius * radius;
     }
@@ -88,7 +88,7 @@ int main() {
 
         bool a;
         cout << "Would you like to do it again?\n"
-            ">>>";
+            ">>> ";
         cin >> a;
         if (!a) break;
     }
