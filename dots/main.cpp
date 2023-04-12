@@ -59,11 +59,11 @@ public:
     SphericalSegment(double x1, double y1, double x2, double y2, double y3, double y4) : Sphere(x1, y1, x2, y2), Segment(x1, y3, x1, y4) {}
     double area() // area of a spherical segment
     { 
-        return 2 * M_PI * getr() * getl();
+        return 2 * M_PI * radius * length;
     }
     double volume() // volume of the spherical segment
     { 
-        return M_PI * getl() * getl() * (getr() - getl() / 3);
+        return M_PI * length * length * (radius - length / 3);
     }
 };
 
@@ -76,11 +76,13 @@ int main() {
         cout << "Enter the coordinate of a point on the sphere (first x, then y): ";
         cin >> x2 >> y2;
         Sphere sphere(x1, y1, x2, y2);
+        cout << "Radius of the sphere: " << sphere.getr() << endl;
         cout << "Area of the sphere: " << sphere.area() << endl;
         cout << "Volume of the sphere: " << sphere.volume() << endl;
         cout << "Enter the upper and lower y-coordinates for the segment height: ";
         cin >> y4 >> y3;
         SphericalSegment sphericalSegment(x1, y1, x2, y2, y3, y4);
+        cout << "Hight of the spherical segment: " << sphericalSegment.getl() << endl;
         cout << "Area of the spherical segment: " << sphericalSegment.area() << endl;
         cout << "Volume of the spherical segment: " << sphericalSegment.volume() << endl;
 
